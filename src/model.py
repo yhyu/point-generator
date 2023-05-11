@@ -41,9 +41,9 @@ class DecoderLayer(nn.Module):
                                           batch_first=True, device=device)
         self.ffn = FullyConnected(embedding_dim, fully_connected_dim, device=device)
         
-        self.layernorm1 = nn.LayerNorm(fully_connected_dim, eps=layernorm_eps, device=device)
-        self.layernorm2 = nn.LayerNorm(fully_connected_dim, eps=layernorm_eps, device=device)
-        self.layernorm3 = nn.LayerNorm(fully_connected_dim, eps=layernorm_eps, device=device)
+        self.layernorm1 = nn.LayerNorm(embedding_dim, eps=layernorm_eps, device=device)
+        self.layernorm2 = nn.LayerNorm(embedding_dim, eps=layernorm_eps, device=device)
+        self.layernorm3 = nn.LayerNorm(embedding_dim, eps=layernorm_eps, device=device)
         
         self.dropout1 = nn.Dropout(dropout_rate)
         self.dropout2 = nn.Dropout(dropout_rate)
